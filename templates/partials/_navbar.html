@@ -25,10 +25,10 @@
                     <a class="nav-link" href="{% url 'pages:gallery' %}">Gallery</a>
                 </li>                    
                 <li class="nav-item active mx-4">
-                    <a class="nav-link" href="#">Sign up</a>
+                    {% comment %} <a class="nav-link" href="{% url 'registration:register' %}">Sign up</a> {% endcomment %}
                 </li>
                 <li class="nav-item mx-4">
-                    <a class="nav-link" href="#">Login</a>
+                    {% comment %} <a class="nav-link" href="{% url 'registration:login' %}">Login</a> {% endcomment %}
                 </li>
                 <li class="nav-item mx-4">
                     <a class="nav-link" href="{% url 'pages:about' %}">About</a>

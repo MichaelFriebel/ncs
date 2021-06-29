@@ -15,13 +15,18 @@ Including another URLconf
 """
 #from django.contrib import admin
 from django.urls import path
-from . import views
+from .views import (
+    IndexView,
+    AboutView,
+    ContactView,
+    GalleryView,
+)
 
 app_name = 'pages'
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('about/', views.about, name='about'),
-    path('contact/', views.contact, name='contact'),
-    path('gallery/', views.gallery, name='gallery'),
+    path('', IndexView.as_view(), name='index'),
+    path('', AboutView.as_view(), name='about'),
+    path('', ContactView.as_view(), name='contact'),
+    path('', GalleryView.as_view(), name='gallery'),
 ]
