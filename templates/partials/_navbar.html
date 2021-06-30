@@ -21,21 +21,39 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <!-- Links -->
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item mx-4">
-                    <a class="nav-link" href="{% url 'pages:gallery' %}">Gallery</a>
-                </li>                    
-                <li class="nav-item active mx-4">
-                    {% comment %} <a class="nav-link" href="{% url 'registration:register' %}">Sign up</a> {% endcomment %}
-                </li>
-                <li class="nav-item mx-4">
-                    {% comment %} <a class="nav-link" href="{% url 'registration:login' %}">Login</a> {% endcomment %}
-                </li>
-                <li class="nav-item mx-4">
-                    <a class="nav-link" href="{% url 'pages:about' %}">About</a>
-                </li>
-                <li class="nav-item mx-4">
-                    <a class="nav-link" href="{% url 'pages:contact' %}">Contact</a>
-                </li>
+                {% if not request.user.is_authenticated %}                    
+                    <li class="nav-item active mx-4">
+                        <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
+                    </li>
+                {% else %}
+                    {% if request.user.is_staff %}
+                        <li class="nav-item mx-4">
+                            <a class="nav-link" href="" class="mr-5 hover:text-gray-900">CRM Dashboard</a>
+                        </li>
+                    {% elif request.user.is_agent %}
+                        <li class="nav-item mx-4">
+                            <a class="nav-link" href="" class="mr-5 hover:text-gray-900">Agent Dashboard</a>
+                        </li>
+                    {% endif %}
+                {% endif %}
+                    <li class="nav-item mx-4">
+                        <a class="nav-link" href="{% url 'pages:gallery' %}">Gallery</a>
+                    </li>
+                    <li class="nav-item mx-4">
+                        <a class="nav-link" href="{% url 'pages:about' %}">About</a>
+                    </li>
+                    <li class="nav-item mx-4">
+                        <a class="nav-link" href="{% url 'pages:contact' %}">Contact</a>
+                    </li>
+                {% if request.user.is_authenticated %}
+                    <li class="nav-item mx-4">
+                        <a class="nav-link" href="{% url 'logout' %}">Hello, {{ request.user.username }} (logout)</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item mx-4">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                {% endif %}
             </ul>
         </div> <!-- / .navbar-collapse -->
     </div> <!-- / .container -->
