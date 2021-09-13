@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %} Create booking {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h1 style="text-align:center" class="h3 mb-3">Reserve your sauna now</h1>
+                        <form method="post" action=".">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <input type="submit" value="Reserve" />
+                        </form>
+                        {% comment %} <a class="btn btn-danger btn-block" href="{% url 'booking:booking_detail', kwargs={'pk': self.object.pk} %}">Reserve</a> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

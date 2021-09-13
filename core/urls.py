@@ -15,7 +15,8 @@ from accounts.views import SignUpView
 urlpatterns = [
     path('', include('pages.urls', namespace='pages')),
     # path('', include('accounts.urls', namespace='accounts')),
-    path('admin/', admin.site.urls),
+    path('booking/', include('booking.urls', namespace='booking')),
+    path('admin/', admin.site.urls),    
     path('signup/', SignUpView.as_view(), name='signup'),
     path('reset-password/', PasswordResetView.as_view(), name='reset-password'),
     path('password-reset-done/', PasswordResetDoneView.as_view(), name='password_reset_done'),

@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'pages.apps.PagesConfig',
     'accounts.apps.AccountsConfig',
+    'booking.apps.BookingConfig',
 ]
 
 MIDDLEWARE = [
@@ -123,7 +124,7 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = True
+USE_I18N = False
 
 USE_L10N = True
 
@@ -148,3 +149,5 @@ LOGOUT_REDIRECT_URL = "/"
 
 # CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+BOOKING_TIME_INTERVAL = 'day'

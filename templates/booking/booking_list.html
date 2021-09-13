@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %} My bookings {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h1>My bookings</h1>
+                        <ul>
+                            {% for booking in object_list %}
+                                <li><a href="{% url 'booking:booking_detail' pk=booking.pk %}">{{ booking }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

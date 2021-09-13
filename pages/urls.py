@@ -26,7 +26,7 @@ app_name = 'pages'
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
-    path('', AboutView.as_view(), name='about'),
-    path('', ContactView.as_view(), name='contact'),
-    path('', GalleryView.as_view(), name='gallery'),
+    path('about/', AboutView.as_view(), name='about'),
+    path('contact/', ContactView.as_view(), name='contact'),
+    path('gallery/', GalleryView.as_view(), name='gallery'),
 ]
